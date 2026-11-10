@@ -1,0 +1,7 @@
+# Producto de ejemplo — clients/demo no es un cliente real. Ver BRIEF.md.
+id: pan-masa-madre-clasico
+name: "Pan de masa madre clásico"
+description: "Fermentación natural de 24 horas. Corteza crujiente, miga alveolada."
+categoryId: panes
+price: { amount: 4500, currency: CLP }
+stock: { quantity: 12 }

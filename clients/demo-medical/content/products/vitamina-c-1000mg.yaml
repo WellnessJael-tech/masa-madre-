@@ -1,0 +1,7 @@
+# Producto de ejemplo — clients/demo-medical no es un cliente real. Ver BRIEF.md.
+id: vitamina-c-1000mg
+name: "Vitamina C 1000mg"
+description: "Frasco de 60 comprimidos efervescentes."
+categoryId: suplementos
+price: { amount: 8990, currency: CLP }
+stock: { quantity: 15 }

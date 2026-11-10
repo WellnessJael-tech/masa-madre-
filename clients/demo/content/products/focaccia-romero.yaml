@@ -1,0 +1,7 @@
+# Producto de ejemplo — clients/demo no es un cliente real. Ver BRIEF.md.
+id: focaccia-romero
+name: "Focaccia de romero"
+description: "Aceite de oliva, romero fresco y sal de mar."
+categoryId: panes
+price: { amount: 3800, currency: CLP }
+stock: { quantity: 0 }

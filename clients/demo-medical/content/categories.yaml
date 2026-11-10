@@ -1,0 +1,5 @@
+# Categorías de ejemplo — clients/demo-medical no es un cliente real. Ver BRIEF.md.
+- id: equipos
+  name: "Equipos"
+- id: suplementos
+  name: "Suplementos"

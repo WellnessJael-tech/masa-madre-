@@ -1,0 +1,30 @@
+/**
+ * Theme: demo-medical
+ *
+ * Cliente de ejemplo (clínica). Azul como color primario, marrón como
+ * secundario/acento — estilo profesional y limpio, per la referencia de
+ * .claude/skills/masa-madre/SKILL.md ("cliente médico, azul+marrón") y
+ * docs/architecture/ARCHITECTURE.md §5 ("primera demo: cliente médico").
+ *
+ * SOLO SOBRESCRIBE VALORES del contrato de themes/_base/theme.css. No
+ * declara tokens nuevos — si necesitara uno que _base no tiene, ese token
+ * pertenece al contrato base, no aquí (ARCHITECTURE.md §6).
+ *
+ * Sin overrides de .dark: el modo oscuro no está conectado a ningún control
+ * de UI todavía — añadirlos ahora sería código muerto sin forma de probarlo.
+ */
+:root {
+  --primary: #1e4e8c;
+  --primary-foreground: #ffffff;
+
+  --secondary: #efe7de;
+  --secondary-foreground: #4a3728;
+
+  --accent: #6b4a2f;
+  --accent-foreground: #ffffff;
+
+  --ring: #1e4e8c;
+
+  /* Radios algo menos redondeados que _base — más sobrio/clínico. */
+  --radius: 0.5rem;
+}

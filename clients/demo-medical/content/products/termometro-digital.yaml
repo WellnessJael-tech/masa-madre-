@@ -1,0 +1,7 @@
+# Producto de ejemplo — clients/demo-medical no es un cliente real. Ver BRIEF.md.
+id: termometro-digital
+name: "Termómetro digital"
+description: "Lectura en 10 segundos, punta flexible."
+categoryId: equipos
+price: { amount: 12990, currency: CLP }
+stock: { quantity: 8 }

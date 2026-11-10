@@ -1,0 +1,7 @@
+# Producto de ejemplo — clients/demo no es un cliente real. Ver BRIEF.md.
+id: galletas-avena
+name: "Galletas de avena y pasas"
+description: "Hechas con el descarte de la masa madre."
+categoryId: reposteria
+price: { amount: 2500, currency: CLP }
+stock: { quantity: 20 }

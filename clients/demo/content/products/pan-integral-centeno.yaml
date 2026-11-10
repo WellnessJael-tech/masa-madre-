@@ -1,0 +1,8 @@
+# Producto de ejemplo — clients/demo no es un cliente real. Ver BRIEF.md.
+id: pan-integral-centeno
+name: "Pan integral de centeno"
+description: "Con semillas de girasol y linaza."
+categoryId: panes
+price: { amount: 5200, currency: CLP }
+compareAtPrice: { amount: 5900, currency: CLP }
+stock: { quantity: 5 }

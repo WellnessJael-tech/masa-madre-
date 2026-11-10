@@ -1,0 +1,108 @@
+# ═══════════════════════════════════════════════════════════════════════════
+# CLIENTE DE INFRAESTRUCTURA — no es un cliente real
+#
+# Existe para ejercitar el cargador de blueprints, el resolutor de modo y el
+# registro de módulos contra el árbol real. No representa a ningún comercio ni
+# contiene datos de nadie.
+#
+# El primer cliente de demostración de verdad (médico, azul + marrón) se
+# construye en un bloque posterior.
+#
+# Contrato completo: docs/client-blueprints/BLUEPRINT-FORMAT.md §3
+# ═══════════════════════════════════════════════════════════════════════════
+
+schemaVersion: 1
+blueprintVersion: "0.1.0"
+core: "^0.1"           # el core está en 0.1.0 (pre-1.0)
+slug: demo
+status: draft          # nunca "live": no es un cliente real
+
+identity:
+  tradeName: "Tienda Demo"
+  description: "Cliente de infraestructura para validar el arranque del core."
+  industry: generic
+  tone: neutral
+  locales: [es]
+  defaultLocale: es
+  contact:
+    email: "hola@tiendademo.cl"
+    phone: "+56912345678"
+    socials:
+      instagram: "https://instagram.com/tiendademo"
+      facebook: "https://facebook.com/tiendademo"
+
+design:
+  theme: _base         # todavía no hay themes de cliente
+  animations: subtle
+  respectReducedMotion: true
+
+assets:
+  approved: false      # no hay recursos: impide construir en producción, que es lo correcto
+
+content:
+  adapter: filesystem  # primer adaptador real (ADR-0016) — lee clients/demo/content/
+
+# Sin módulos: no existe ninguno todavía y el catálogo está vacío.
+# Añadir aquí un id inexistente debe romper el arranque — es la garantía
+# de que la detección de módulos desconocidos funciona.
+modules:
+  whatsapp:
+    enabled: true
+    config:
+      phone: "+56912345678"
+      defaultMessage: "Hola, quiero consultar por un producto de la tienda."
+  admin-content:
+    enabled: true
+    config:
+      announcement: "Envío gratis en pedidos sobre $30.000"
+  admin-catalog:
+    enabled: true
+    config:
+      password: "panmasamadre"   # NO es seguridad real — ver ADR-0021
+
+# Sucursal con retiro habilitado — necesaria para el adaptador delivery/pickup.
+branches:
+  - id: centro
+    name: "Sucursal Centro"
+    address: "Av. Principal 123"
+    pickup: true
+    hours: { "lunes-viernes": "9:00-19:00" }
+
+features:
+  search:
+    enabled: true
+    minChars: 2
+  checkout:
+    guestCheckout: true
+
+commerce:
+  currency: CLP
+  priceDisplay:
+    taxIncluded: true
+
+# Sin adaptadores: no hay ninguna integración construida.
+# Declarar aquí un adaptador inexistente debe romper el arranque.
+# ownDelivery.zones.freeOver: solo informativo (mensaje en el carrito) —
+# no hay ningún adaptador de delivery activo, no calcula envío real.
+delivery:
+  adapters: [pickup, own-delivery]
+  ownDelivery:
+    zones:
+      - id: general
+        label: "Envío a domicilio"
+        fee: { amount: 2500, currency: CLP }
+        freeOver: { amount: 30000, currency: CLP }
+payments:
+  adapters: [mock]   # adaptador simulado — bloquea el build si VITE_MODE=production (ADR-0017)
+
+analytics:
+  adapter: ""          # vacío = sin analítica; no se rastrea nada
+  consent:
+    required: true
+    mode: opt-in
+
+commercial:
+  tier: managed
+  acceptanceCriteria:
+    - "El arranque resuelve el blueprint sin errores."
+    - "Un blueprint inválido detiene el arranque con un mensaje accionable."

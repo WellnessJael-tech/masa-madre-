@@ -1,0 +1,8 @@
+# Producto de ejemplo — clients/demo-medical no es un cliente real. Ver BRIEF.md.
+id: alcohol-gel-500ml
+name: "Alcohol en gel 500ml"
+description: "70% de concentración, con dosificador."
+categoryId: equipos
+price: { amount: 2990, currency: CLP }
+compareAtPrice: { amount: 3490, currency: CLP }
+stock: { quantity: 25 }

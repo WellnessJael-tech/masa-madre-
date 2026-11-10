@@ -1,0 +1,5 @@
+# Categorías de ejemplo — clients/demo no es un cliente real. Ver BRIEF.md.
+- id: panes
+  name: "Panes"
+- id: reposteria
+  name: "Repostería"

@@ -1,0 +1,92 @@
+# ═══════════════════════════════════════════════════════════════════════════
+# CLIENTE DE INFRAESTRUCTURA — no es un cliente real
+#
+# Prueba la derivación de una segunda tienda: mismo core, mismo catálogo,
+# mismo carrito y checkout, mismo adaptador de contenido — solo cambia el
+# THEME (azul + marrón) y el CONTENIDO (productos médicos de ejemplo).
+# Ver clients/demo-medical/BRIEF.md y docs/architecture/DECISIONS.md ADR-0019.
+# ═══════════════════════════════════════════════════════════════════════════
+
+schemaVersion: 1
+blueprintVersion: "0.1.0"
+core: "^0.1"
+slug: demo-medical
+status: draft
+
+identity:
+  tradeName: "Centro Médico Demo"
+  description: "Cliente de infraestructura para probar la derivación por theme."
+  industry: health
+  tone: professional-warm
+  locales: [es]
+  defaultLocale: es
+  contact:
+    email: "contacto@centromedicodemo.cl"
+    phone: "+56922223333"
+    socials:
+      instagram: "https://instagram.com/centromedicodemo"
+
+design:
+  theme: demo-medical
+  animations: subtle
+  respectReducedMotion: true
+
+assets:
+  approved: false      # no es un cliente real: impide construir en producción
+
+content:
+  adapter: filesystem   # mismo adaptador que clients/demo — cero código nuevo
+
+modules:
+  whatsapp:
+    enabled: false   # deliberado: prueba que un modulo declarado pero apagado no aparece
+  admin-content:
+    enabled: true
+    config:
+      announcement: "Retiro en tienda sin costo"
+  admin-catalog:
+    enabled: true
+    config:
+      password: "clinicademo"   # distinta a la de demo: mismo modulo, config propia
+
+branches:
+  - id: centro
+    name: "Sucursal Centro"
+    address: "Av. Salud 456"
+    pickup: true
+    hours: { "lunes-viernes": "9:00-18:00" }
+
+features:
+  search:
+    enabled: true
+    minChars: 2
+  checkout:
+    guestCheckout: true
+
+commerce:
+  currency: CLP
+  priceDisplay:
+    taxIncluded: true
+
+delivery:
+  adapters: [pickup, own-delivery]
+  ownDelivery:
+    zones:
+      - id: general
+        label: "Envío a domicilio"
+        fee: { amount: 3000, currency: CLP }
+        freeOver: { amount: 25000, currency: CLP }
+payments:
+  adapters: [mock]
+
+analytics:
+  adapter: ""
+  consent:
+    required: true
+    mode: opt-in
+
+commercial:
+  tier: managed
+  acceptanceCriteria:
+    - "El theme demo-medical se aplica sin modificar código de src/core."
+    - "El carrito y el checkout funcionan igual que en clients/demo."

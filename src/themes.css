@@ -1,0 +1,50 @@
+/* src/themes.css */
+
+/* TEMA 1: TITANIUM DARK (El actual - Operativo) */
+:root, [data-theme="titanium"] {
+  --bg-main: #020617; /* slate-950 */
+  --bg-surface: #0f172a; /* slate-900 */
+  --bg-surface-hover: #1e293b; /* slate-800 */
+  --border-color: #1e293b; /* slate-800 */
+  --text-main: #e2e8f0; /* slate-200 */
+  --text-muted: #64748b; /* slate-500 */
+  --primary: #0ea5e9; /* sky-500 */
+  --primary-hover: #0284c7; /* sky-600 */
+  --accent: #8b5cf6; /* violet-500 */
+}
+
+/* TEMA 2: EWB CORPORATE (Finanzas/Clientes - Claro y Limpio) */
+[data-theme="corporate"] {
+  --bg-main: #f8fafc; /* slate-50 */
+  --bg-surface: #ffffff; /* white */
+  --bg-surface-hover: #f1f5f9; /* slate-100 */
+  --border-color: #e2e8f0; /* slate-200 */
+  --text-main: #0f172a; /* slate-900 */
+  --text-muted: #64748b; /* slate-500 */
+  --primary: #2563eb; /* blue-600 */
+  --primary-hover: #1d4ed8; /* blue-700 */
+  --accent: #d97706; /* amber-600 */
+}
+
+/* TEMA 3: SENTINEL CYBER (War Room - Oscuro y Neón) */
+[data-theme="sentinel"] {
+  --bg-main: #000000; /* black */
+  --bg-surface: #09090b; /* zinc-950 */
+  --bg-surface-hover: #18181b; /* zinc-900 */
+  --border-color: #27272a; /* zinc-800 */
+  --text-main: #f4f4f5; /* zinc-100 */
+  --text-muted: #71717a; /* zinc-500 */
+  --primary: #ef4444; /* red-500 (Alerta) */
+  --primary-hover: #dc2626; /* red-600 */
+  --accent: #22c55e; /* green-500 (Seguro) */
+}
+
+/* Clases de utilidad para que Tailwind las entienda */
+.bg-main { background-color: var(--bg-main); }
+.bg-surface { background-color: var(--bg-surface); }
+.bg-surface-hover { background-color: var(--bg-surface-hover); }
+.text-main { color: var(--text-main); }
+.text-muted { color: var(--text-muted); }
+.border-theme { border-color: var(--border-color); }
+.text-primary { color: var(--primary); }
+.bg-primary { background-color: var(--primary); }

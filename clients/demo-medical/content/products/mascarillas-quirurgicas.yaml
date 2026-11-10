@@ -1,0 +1,7 @@
+# Producto de ejemplo — clients/demo-medical no es un cliente real. Ver BRIEF.md.
+id: mascarillas-quirurgicas
+name: "Mascarillas quirúrgicas (caja x50)"
+description: "Triple capa, uso desechable."
+categoryId: equipos
+price: { amount: 5990, currency: CLP }
+stock: { quantity: 0 }
